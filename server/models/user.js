@@ -55,6 +55,18 @@ UserSchema.methods.generateAuthToken = function() { // Using a normal function i
 	} );
 };
 
+UserSchema.methods.removeToken = function (token) {
+	var user = this;
+
+	return user.update({
+		$pull: {
+			tokens: {
+				token: token
+			}
+		}
+	});
+};
+
 UserSchema.statics.findByToken = function(token) {
 	var User = this;
 	var decoded;
