@@ -5,8 +5,9 @@ var authenticate = (req, res, next) => {
 	if (!token) res.status(401).send();
 
 	User.findByToken(token).then( (user) => {
-		if (!user) {
-			Promise.reject(); // stop this function and move to reject (catch) block
+		if (!user || user == null) {
+			// return is important here, otherwhise rest of the promise block will run
+			return Promise.reject(); // stop this function and move to reject (catch) block
 		}
 
 		req.user = user;
