@@ -17,7 +17,7 @@ var UserSchema = new mongoose.Schema({
 			},
 			message: '{VALUE} is not a valid email'
 		}
-		// match: /^(\w+\.\w+|\w+)@((\w+\.\w+\.\w+)|(\w+\.\w+))$/  // just screwing around with regex for mail validation... lol
+		// match: /^(\w+\.\w+|\w+)@((\w+\.\w+\.\w+)|(\w+\.\w+))$/  // just screwing around with regex for mail validation
 	},
 	password: {
 		type: String,
